@@ -1,54 +1,40 @@
-# This is django project where we buit full-stack application, which will classify radation with svm
+## Radiation Classification System using Support Vector Machine (SVM)
 
-# This is django project where we built full-stack application which will classify radiation with svm model and we can download the csv file (Data used for prediction)
+This Django-based web application classifies atmospheric radiation into *Gamma (Signal)* or *Hadron (Background). It utilizes a Support Vector Machine (SVM) model to find the optimal hyperplane that separates the two particle classes based on Cherenkov telescope data.
 
-# 🌌 Gamma-Hadron Particle Classifier
+![WhatsApp Image 2026-02-05 at 3 36 02 PM](https://github.com/user-attachments/assets/dd44d45f-7573-4709-bbfd-82c1a4da0678)
+![WhatsApp Image 2026-02-05 at 3 36 03 PM](https://github.com/user-attachments/assets/da155bae-c922-4268-82c0-331da9a5aa95)
 
-A Machine Learning web application built with **Django** to classify high-energy particles (Gamma vs. Hadron) using data from the MAGIC Gamma Telescope.
+![WhatsApp Image 2026-02-05 at 3 40 36 PM](https://github.com/user-attachments/assets/acf25349-0de4-4b09-b0d6-c42bbebfa2a1)
 
-## 🚀 Key Features
 
-* **Real-time Classification:** Integrated ML model for instant prediction.
-* **Django Integration:** Logic handled within `views.py` for seamless request processing.
-* **Data Persistence:** Automatic logging of inputs and results to the database.
+## 🧠 Machine Learning: Support Vector Machine
+The core of this project is an SVM classifier. SVM was chosen for its effectiveness in high-dimensional spaces and its ability to create a clear margin of separation between the complex features of Gamma and Hadron showers.
 
-## 🛠️ Tech Stack
 
-* **Backend:** Django (Python)
-* **Machine Learning:** Scikit-Learn (SVM)
-* **Database:** SQLite
-* **Data Source:** MAGIC Gamma Telescope Dataset 
 
-## 🏗️ Implementation Details
+### Model Integration
+The model is integrated directly into the Django backend:
+- *Persistence:* The trained SVM model is loaded via joblib or pickle inside views.py.
+- *Inference:* User inputs from the frontend are processed as a feature vector and passed to model.predict().
+- *Persistence:* Results are stored in the database linked to the SVM prediction output.
 
-### Model Integration (`views.py`)
+## 🚀 Features
+- *SVM Prediction Engine:* High-accuracy classification using a radial basis function (RBF) or linear kernel.
+- *Django Integration:* A seamless bridge between the Python ML logic and the web interface.
+- *Database Tracking:* Every prediction is logged with its input parameters for further data analysis.
 
-The application loads a serialized model (`.pkl` or `.joblib`) and processes form data:
-
-```python
-def predict_view(request):
-    # 1. Capture telescope parameters from form
-    # 2. model.predict() determines if it is 'Gamma' or 'Hadron'
-    # 3. Results are saved to the database via Django Models
-    # 4. Result is rendered to the UI
-
-```
-
-### Database Connection
-
-All prediction history is stored in the database, tracking:
-
-* **Input Features:** fLength, fWidth, fSize, etc.
-* **Classification:** Gamma (Signal) or Hadron (Background).
-* **Timestamp:** For historical data tracking.
-
-## 📋 Quick Setup
-
-1. **Install:** `pip install -r requirements.txt`
-2. **Migrate DB:** `python manage.py migrate`
-3. **Run:** `python manage.py runserver`
----
+## 🛠️ Technical Implementation
+### Views.py Logic
+In your views.py, the flow operates as follows:
+1. Capture POST data from the input form.
+2. Scale the data (if a scaler was used during training).
+3. Run the SVM model: prediction = svm_model.predict(input_features).
+4. Save the instance to the database: ClassificationResult.objects.create(...).
+5. Return the result to the template.
 
 *Developed for high-energy physics data analysis.*
 ## 📂Project Structure
 <img width="464" height="871" alt="Screenshot 2026-02-05 153404" src="https://github.com/user-attachments/assets/e04e0395-8259-49a5-be65-c3e9cb2fa509" />
+
+
