@@ -1,17 +1,54 @@
 # This is django project where we buit full-stack application, which will classify radation with svm
 
-Gamma & Hadron Particle Classifier (or Analysis Tool)
-A Django-based web application designed to visualize, analyze, or classify Gamma rays and Hadron particles based on atmospheric shower data (e.g., from the MAGIC telescope dataset).
+# This is django project where we built full-stack application which will classify radiation with svm model and we can download the csv file (Data used for prediction)
 
-🔬 Project Overview
-This project provides a platform to process high-energy physics data. It distinguishes between high-energy gamma rays (signal) and hadronic showers (background noise) using [mention your method, e.g., Machine Learning / Statistical Analysis].
+# 🌌 Gamma-Hadron Particle Classifier
 
-Key Features
-Data Ingestion: Upload and process CSV or ROOT files containing particle parameters.
+A Machine Learning web application built with **Django** to classify high-energy particles (Gamma vs. Hadron) using data from the MAGIC Gamma Telescope.
 
-Visualization: Interactive plots showing the differences in "Hillas parameters" (Width, Length, Size, etc.).
+## 🚀 Key Features
 
-Real-time Classification: A web interface to input particle attributes and get an instant classification result.
+* **Real-time Classification:** Integrated ML model for instant prediction.
+* **Django Integration:** Logic handled within `views.py` for seamless request processing.
+* **Data Persistence:** Automatic logging of inputs and results to the database.
 
-Scientific Dashboard: Summary statistics of detected events.
+## 🛠️ Tech Stack
+
+* **Backend:** Django (Python)
+* **Machine Learning:** Scikit-Learn (SVM)
+* **Database:** SQLite
+* **Data Source:** MAGIC Gamma Telescope Dataset 
+
+## 🏗️ Implementation Details
+
+### Model Integration (`views.py`)
+
+The application loads a serialized model (`.pkl` or `.joblib`) and processes form data:
+
+```python
+def predict_view(request):
+    # 1. Capture telescope parameters from form
+    # 2. model.predict() determines if it is 'Gamma' or 'Hadron'
+    # 3. Results are saved to the database via Django Models
+    # 4. Result is rendered to the UI
+
+```
+
+### Database Connection
+
+All prediction history is stored in the database, tracking:
+
+* **Input Features:** fLength, fWidth, fSize, etc.
+* **Classification:** Gamma (Signal) or Hadron (Background).
+* **Timestamp:** For historical data tracking.
+
+## 📋 Quick Setup
+
+1. **Install:** `pip install -r requirements.txt`
+2. **Migrate DB:** `python manage.py migrate`
+3. **Run:** `python manage.py runserver`
+---
+
+*Developed for high-energy physics data analysis.*
+## 📂Project Structure
 <img width="464" height="871" alt="Screenshot 2026-02-05 153404" src="https://github.com/user-attachments/assets/e04e0395-8259-49a5-be65-c3e9cb2fa509" />
