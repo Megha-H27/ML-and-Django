@@ -12,3 +12,4 @@ Visualization: Interactive plots showing the differences in "Hillas parameters" 
 Real-time Classification: A web interface to input particle attributes and get an instant classification result.
 
 Scientific Dashboard: Summary statistics of detected events.
+<img width="464" height="871" alt="Screenshot 2026-02-05 153404" src="https://github.com/user-attachments/assets/e04e0395-8259-49a5-be65-c3e9cb2fa509" />
