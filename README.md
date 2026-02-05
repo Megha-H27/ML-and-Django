@@ -1,3 +1,5 @@
+# This is django project where we buit full-stack application, which will classify radation with svm
+
 Gamma & Hadron Particle Classifier (or Analysis Tool)
 A Django-based web application designed to visualize, analyze, or classify Gamma rays and Hadron particles based on atmospheric shower data (e.g., from the MAGIC telescope dataset).
 
