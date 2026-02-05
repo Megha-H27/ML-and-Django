@@ -35,6 +35,6 @@ In your views.py, the flow operates as follows:
 
 *Developed for high-energy physics data analysis.*
 ## 📂Project Structure
-<img width="464" height="871" alt="Screenshot 2026-02-05 153404" src="https://github.com/user-attachments/assets/e04e0395-8259-49a5-be65-c3e9cb2fa509" />
 
+![WhatsApp Image 2026-02-05 at 8 51 25 PM](https://github.com/user-attachments/assets/30aafd9c-3600-4089-9bba-f88d81949670)
 
